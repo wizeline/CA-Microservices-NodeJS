@@ -1,3 +1,1 @@
-import MainServices from './main.services.js';
-
-export default { MainServices };
+export * from './main.services.js';

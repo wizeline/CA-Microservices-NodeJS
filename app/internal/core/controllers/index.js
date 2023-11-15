@@ -1,3 +1,1 @@
-import { MainController } from './main.controller.js';
-
-export default { MainController };
+export * from './main.controller.js';

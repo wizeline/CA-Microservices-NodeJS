@@ -1,3 +1,5 @@
-import Routes from './routes/index.js';
+import { MainRoute } from './routes/index.js';
 
-export default Routes;
+export const Adapters = {
+  Routes: { MainRoute },
+};

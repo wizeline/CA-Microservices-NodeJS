@@ -1,3 +1,1 @@
-import MainRoutes from './main.routes.js';
-
-export default { MainRoutes };
+export * from './main.routes.js';

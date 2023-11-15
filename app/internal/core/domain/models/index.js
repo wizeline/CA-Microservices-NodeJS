@@ -1,3 +1,3 @@
 import { Responses } from './responses.models.js';
 
-export default { Responses };
+export const Models = { Responses };

@@ -1,7 +1,5 @@
 import { constants } from 'http2';
-import Services from '../services/index.js';
-
-const MainServices = new Services.MainServices();
+import { MainServices } from '../services/index.js';
 
 /**
  * Callback function for performing a health check.
