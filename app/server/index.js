@@ -1,7 +1,7 @@
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import express from 'express';
-import { Routes } from '../internal/adapters/routes/index.js';
+import Routes from '../internal/adapters/index.js';
 
 /**
  * Represents an Express application server.
@@ -29,15 +29,15 @@ class Server {
    * Sets up the routes for the Express server.
    */
   setRoutes() {
-    const mainRoutes = new Routes.MainRoutes(this.app);
-    mainRoutes.initialize();
+    const mainRoutes = new Routes.MainRoutes();
+    this.app.use('/', mainRoutes.getRouter());
   }
 
   /**
    * Return express app
-   * @returns {Express}
+   * @returns {express.Express}
    */
-  getServer() {
+  getAppServer() {
     return this.app;
   }
 }

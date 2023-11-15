@@ -4,7 +4,7 @@ class Application {
   constructor() {
     this.port = 3000;
     const server = new Server();
-    this.app = server.getServer();
+    this.app = server.getAppServer();
   }
 
   startServer() {

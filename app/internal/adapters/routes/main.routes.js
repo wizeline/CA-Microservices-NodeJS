@@ -1,4 +1,5 @@
 import express from 'express';
+import Controller from '../../core/controllers/index.js';
 
 /**
  * Class representing the main routes for the application.
@@ -8,21 +9,22 @@ class MainRoutes {
    * Create a new instance of MainRoutes.
    * @param {express.Application} app - The Express application instance.
    */
-  constructor(app) {
-    this.app = app;
+  constructor() {
     this.router = express.Router();
+    this.controller = Controller.MainController;
+    this.initialize();
   }
 
   /**
    * Initialize the routes
    */
   initialize() {
-    this.app.use('/', this.router);
-    this.router.get('/', (req, res) => {
-      res.send('Hello World!');
-    });
+    this.router.get('/health', this.controller.healthCheck);
+  }
+
+  getRouter() {
+    return this.router;
   }
 }
 
-// Export the MainRoutes class as the default export for the module.
 export default MainRoutes;
