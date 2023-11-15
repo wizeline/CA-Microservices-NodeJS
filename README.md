@@ -24,13 +24,13 @@ A Microservice API based on the hexagonal architecture using NodeJS + ExpressJS
 - [Commit conventions](https://www.conventionalcommits.org/en/v1.0.0/#specification)
 
 ### Architecture
+
 <!-- TODO: App diagram or file directory description -->
 
 ### Requirements
 
-- NodeJS >= v20.1.0
-- NPM >= v10.1.0
-- Docker
+- [NodeJS](https://nodejs.org/en/) >= v20.1.0
+- [Docker](https://www.docker.com/)
 
 ### SetUp
 
@@ -49,7 +49,7 @@ npm run start
 #### Test
 
 ```zsh
-npm run start
+npm run test
 ```
 
 ## Any assistance?
