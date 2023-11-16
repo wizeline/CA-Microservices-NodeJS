@@ -11,6 +11,12 @@ const config = {
   transform: {
     '^.+\\.[t|j]sx?$': 'babel-jest',
   },
+  coverageThreshold: {
+    global: {
+      lines: 90,
+    },
+  },
+  collectCoverageFrom: ['app/**/*.js', '!app/**/index.js'],
 };
 
 export default config;

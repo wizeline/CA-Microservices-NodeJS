@@ -1,4 +1,4 @@
-import { Domain } from '../domain/index.js';
+import { Domain } from '../domain';
 
 const {
   Models: { Responses },

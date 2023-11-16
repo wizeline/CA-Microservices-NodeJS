@@ -1,3 +1,3 @@
-import { Models } from './models/index.js';
+import { Models } from './models';
 
 export const Domain = { Models };
