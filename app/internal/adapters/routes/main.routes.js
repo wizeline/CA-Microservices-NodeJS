@@ -1,5 +1,5 @@
 import express from 'express';
-import { MainController } from '../../core/controllers/index.js';
+import { MainController } from '../../core/controllers';
 
 /**
  * Create a new instance of MainRoutes.

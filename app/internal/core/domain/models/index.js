@@ -1,3 +1,3 @@
-import { Responses } from './responses.models.js';
+import { Responses } from './responses.models';
 
 export const Models = { Responses };

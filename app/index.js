@@ -1,5 +1,6 @@
-import App from './server/index.js';
+import App from './server';
 
-App.listen(3000, () => {
-  console.log('App listen at http://localhost:3000');
+const PORT = 3001;
+App.listen(PORT, () => {
+  console.log(`App listen at http://localhost:${PORT}`);
 });

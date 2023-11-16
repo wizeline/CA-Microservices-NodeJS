@@ -1,7 +1,7 @@
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import express from 'express';
-import { Adapters } from '../internal/adapters/index.js';
+import { Adapters } from '../internal/adapters';
 
 const { Routes } = Adapters;
 

@@ -1,5 +1,5 @@
 import { constants } from 'http2';
-import { MainServices } from '../services/index.js';
+import { MainServices } from '../services';
 
 /**
  * Callback function for performing a health check.
