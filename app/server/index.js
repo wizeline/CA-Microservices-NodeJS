@@ -11,5 +11,6 @@ App.use(bodyParser.json());
 App.use(bodyParser.urlencoded({ extended: false }));
 
 Routes.MainRoute(App);
+Routes.usersRoute(App);
 
 export default App;
