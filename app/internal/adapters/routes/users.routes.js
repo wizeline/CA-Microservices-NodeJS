@@ -1,7 +1,7 @@
 import express from "express";
-import { UsersController } from "../../core/controllers/users.controller";
+import { UsersController } from "../../core/controllers";
 
-export const usersRoute = (app) =>{
+export const UsersRoute = (app) =>{
     const router = express.Router();
     app.use('/users', router);
 

@@ -1,4 +1,4 @@
-import { UserServices } from "../services/users.services";
+import { UserServices } from '../services';
 import { constants } from 'http2';
 import { Domain } from '../domain';
 
@@ -7,18 +7,10 @@ const {
 } = Domain;
 
 export const UsersController = {
-    getById: async (req, res, next) => {
+    getById: (req, res, next) => {
       try {
-        //const ids = req.params.id.split(',').map(Number);
-        //const users = await UserServices.getById(ids, req.config.users.api);
-        //req.dataBase.connection.close()
-        const message = Responses.simple('This is a response from a getID request')
+        const message = UserServices.getById();
         res.status(constants.HTTP_STATUS_OK).json(message);
-        //if (users.length) {
-        //  res.status(200).json(users);
-        //} else {
-        //  res.status(404).json({});
-        //}
       } catch (err) {
         next(err);
       }
@@ -26,8 +18,7 @@ export const UsersController = {
     create: async (req, res, next) => {
       {
         try {
-          // const newUser = await UserServices.create(req.body);
-          const message = Responses.simple('This is a response from a post request')
+          const message = UserServices.create();
           res.status(constants.HTTP_STATUS_OK).json(message);
         } catch (err) {
           next(err);
@@ -36,30 +27,16 @@ export const UsersController = {
     },
     update: async (req, res, next) => {
       try {
-        //const reponse = await UserServices.update(req.params.id, req.body);
-        //req.dataBase.connection.close()
-        const message = Responses.simple('This is a response from a update request')
+        const message = UserServices.update();
         res.status(constants.HTTP_STATUS_OK).json(message);
-        //if (reponse.user) {
-        //  res.status(200).json(reponse.user);
-        //} else {
-        //  res.status(304).json({});
-        //}
       } catch (err) {
         next(err);
       }
     },
     delete: async (req, res, next) => {
       try {
-        //const reponse = await UserServices.delete(req.params.id);
-        //req.dataBase.connection.close()
-        const message = Responses.simple('This is a response from a delete request')
+        const message = UserServices.delete();
         res.status(constants.HTTP_STATUS_OK).json(message);
-        //if (reponse.user) {
-        //  res.status(200).json(reponse.user);
-        //} else {
-        //  res.status(304).json({});
-        //}
       } catch (err) {
         next(err);
       }
