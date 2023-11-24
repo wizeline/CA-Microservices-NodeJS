@@ -29,7 +29,12 @@
     ],
     "prefer-template": "error",
     "no-undef": "error",
-    "no-unused-vars": "error",
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
     "no-use-before-define": [
       "error",
       {

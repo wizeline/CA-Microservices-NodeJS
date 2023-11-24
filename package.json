@@ -4,8 +4,8 @@
   "description": "Hexagonal architecture codebase for building microservices applications",
   "scripts": {
     "build": "babel app/ -d dist",
-    "start": "node dist/index.js",
-    "dev": "nodemon --exec babel-node app/index.js",
+    "start": "node dist/index.js node—file=.env",
+    "dev": "nodemon --exec babel-node app/index.js node—file=.env ",
     "test": "jest --verbose",
     "lint": "eslint app/",
     "lint-fix": "eslint app/ --fix"
@@ -41,6 +41,10 @@
   "dependencies": {
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "winston": "^3.11.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
   }
 }
