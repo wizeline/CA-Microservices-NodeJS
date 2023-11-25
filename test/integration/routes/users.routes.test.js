@@ -36,7 +36,7 @@ describe('User Route Update', () => {
     });
 });
 
-describe('User Route Get', () => {
+describe('User Route Delete', () => {
     it('DELETE /users/{id}', async () => {
         const res = await request(app).delete('/users/123');
         const expected = "This is a response from a delete request"
