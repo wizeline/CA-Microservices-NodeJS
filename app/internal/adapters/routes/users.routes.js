@@ -1,6 +1,10 @@
 import express from "express";
 import { UsersController } from "../../core/controllers";
 
+/**
+ * Create a new instance of UserRoutes.
+ * @param {express.Application} app - The Express application instance.
+ */
 export const UsersRoute = (app) =>{
     const router = express.Router();
     app.use('/users', router);

@@ -6,6 +6,16 @@ const {
   Models: { Responses },
 } = Domain;
 
+/**
+ * Callback function for performing a CRUD.
+ * @param {import('express').Request} req - Express request object.
+ * @param {import('express').Response} res - Express response object.
+ * @param {import('express').NextFunction} next - Express next middleware function.
+ * @function getByID - Obtain the information of a user using an ID.
+ * @function create - Create a new user.
+ * @function update - RRefresh the information of  a user using  his ID.
+ * @function delete - Delete the information of a user using his ID.
+ */
 export const UsersController = {
     getById: (req, res, next) => {
       try {

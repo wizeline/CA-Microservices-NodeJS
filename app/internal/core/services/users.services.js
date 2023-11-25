@@ -5,6 +5,16 @@ const {
   Models: { Responses },
 } = Domain;
 
+/**
+ * Get by ID response.
+ * @returns {import('../domain/models/responses.models.js').SimpleResponse} The getByID response.
+ * Create response.
+ * @returns {import('../domain/models/responses.models.js').SimpleResponse} The create response.
+ * Update response.
+ * @returns {import('../domain/models/responses.models.js').SimpleResponse} The update response.
+ * Delete response.
+ * @returns {import('../domain/models/responses.models.js').SimpleResponse} The delete response.
+ */
 export const UserServices = {
     getById: () =>{
       return Responses.simple('This is a response from a get request');

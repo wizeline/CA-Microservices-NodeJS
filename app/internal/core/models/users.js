@@ -1,5 +1,8 @@
 import {model, Schema} from 'mongoose';
-
+/**
+ * Create User Schema is the schema for the request body.
+ * @const {mongoose.Schema} createUserSchema
+ */
 const createUserSchema = new Schema(
     {
         Id: {
