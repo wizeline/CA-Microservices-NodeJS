@@ -1,5 +1,5 @@
-import { MainRoute } from './routes';
+import { MainRoute, UsersRoute} from './routes';
 
 export const Adapters = {
-  Routes: { MainRoute },
+  Routes: { MainRoute, UsersRoute},
 };

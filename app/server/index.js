@@ -13,6 +13,7 @@ App.use(bodyParser.urlencoded({ extended: false }));
 App.use(Logger);
 
 Routes.MainRoute(App);
+Routes.UsersRoute(App);
 
 App.use(HandlerError);
 export default App;
