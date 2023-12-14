@@ -13,6 +13,13 @@ const simple = (message) => ({
   message,
 });
 
+const tokenResponse = (token) =>({
+  access_token: token,
+  expires_in: "1 Hour",
+  token_type: "Bearer"
+})
+
 export const Responses = {
   simple,
+  tokenResponse,
 };

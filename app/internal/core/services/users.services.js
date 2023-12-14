@@ -18,7 +18,8 @@ const {
  */
 export const UserServices = {
     getToken:(admin_id) =>{
-      return Token.generateToken(admin_id);
+      const token = Token.generateToken(admin_id);
+      return Responses.tokenResponse(token);
     },
     getById: () =>{
       return Responses.simple('This is a response from a get request');
