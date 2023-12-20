@@ -1,6 +1,4 @@
-import {UserModel} from '../models';
 import { Domain } from '../domain';
-import {Token} from '../../../security';
 
 const {
   Models: { Responses },
@@ -17,10 +15,6 @@ const {
  * @returns {import('../domain/models/responses.models.js').SimpleResponse} The delete response.
  */
 export const UserServices = {
-    getToken:(admin_id) =>{
-      const token = Token.generateToken(admin_id);
-      return Responses.tokenResponse(token);
-    },
     getById: () =>{
       return Responses.simple('This is a response from a get request');
     },
