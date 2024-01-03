@@ -40,7 +40,7 @@ A Microservice API based on the hexagonal architecture using NodeJS + ExpressJS
 npm install
 ```
 
-#### Run using Docker
+#### Run the app using Docker
 Use the following commands to run the app
 ```zsh
 docker-compose run --rm express npm install
