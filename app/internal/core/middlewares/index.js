@@ -1,3 +1,3 @@
 export * from './logs';
 export * from './error';
-export * from './jwt';
+export * from './configurations';

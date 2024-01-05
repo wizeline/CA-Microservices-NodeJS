@@ -1,5 +1,5 @@
 import { Domain } from '../domain';
-import {Token} from '../middlewares';
+import { Token } from '../../adapters/auth';
 
 const {
   Models: { Responses },

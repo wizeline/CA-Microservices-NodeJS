@@ -14,15 +14,18 @@ const simple = (message) => ({
 });
 
 /**
- * Represents a simple response object.
+ * Represents a token response object.
  * @typedef {Object} TokenResponse
- * @property {string} token - The token created with the expiration time.
+ * @property {string} access_token - The token created.
+ * @property {string} expires_in - The expiration time of the toke.
+ * @property {string} token_type - The token type for the request, by default is Bearer.
  */
 
 /**
- * Creates a simple response object.
+ * Creates a token response object.
  * @param {string} token - The token created with the expiration time.
- * @returns {SimpleResponse} The token created response.
+ * @property {string} expires_in - The expiration time of the token.
+ * @returns {TokenResponse} The token response with the information about the token created.
  */
 
 const tokenResponse = (token, expires_in) =>({
