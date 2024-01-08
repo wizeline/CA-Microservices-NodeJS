@@ -13,10 +13,10 @@ App.use(bodyParser.json());
 App.use(bodyParser.urlencoded({ extended: false }));
 App.use(Logger);
 App.use(configurations);
+App.use(VerifyToken);
 
 Routes.MainRoute(App);
 Routes.AuthRoute(App);
-App.use(VerifyToken);
 Routes.UsersRoute(App);
 
 App.use(HandlerError);
