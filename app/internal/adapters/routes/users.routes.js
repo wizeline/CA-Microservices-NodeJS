@@ -8,7 +8,7 @@ import { UsersController } from "../../core/controllers";
 export const UsersRoute = (app) =>{
     const router = express.Router();
     app.use('/users', router);
-
+    
     //List by id
     router.get('/:id', UsersController.getById);
     // Create a new user

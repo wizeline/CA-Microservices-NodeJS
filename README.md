@@ -39,6 +39,10 @@ A Microservice API based on the hexagonal architecture using NodeJS + ExpressJS
 ```zsh
 npm install
 ```
+### Before running the project
+```zsh
+cp .env.example .env
+```
 
 #### Run
 

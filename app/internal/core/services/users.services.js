@@ -1,4 +1,3 @@
-import {UserModel} from '../models';
 import { Domain } from '../domain';
 
 const {
