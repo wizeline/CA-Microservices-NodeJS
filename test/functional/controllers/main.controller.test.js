@@ -3,12 +3,16 @@ import { constants } from 'http2';
 
 describe('MainController', () => {
   it('health check is requested', () => {
-    const res = { json: jest.fn((x) => x), status: jest.fn((x) => x) };
-    const callback = () => {
-      return null;
-    };
+    const req = {
+      body:{
+        admin_id: 123,
+        expires_in: "3h"
+      }
+    }
+    const res = { json: jest.fn(), status: jest.fn() };
+    const next = jest.fn()
 
-    MainController.healthCheck(null, res, callback);
+    MainController.healthCheck(req, res, next);
     expect(res.status).toHaveBeenCalledWith(constants.HTTP_STATUS_OK);
   });
 });
