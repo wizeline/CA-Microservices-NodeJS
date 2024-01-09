@@ -39,21 +39,29 @@ A Microservice API based on the hexagonal architecture using NodeJS + ExpressJS
 ```zsh
 npm install
 ```
+
 ### Before running the project
+
 ```zsh
 cp .env.example .env
 ```
 
 #### Run the app using Docker
+
 Use the following commands to run the app
+
 ```zsh
-docker-compose run --rm express npm install
+docker build . -t ca-microservices-nodejs
 ```
+
 Then:
+
 ```zsh
 docker-compose up -d
 ```
+
 Now you can do a HTTP request to:
+
 ```zsh
 http://localhost:3001/users/123123123
 ```

@@ -1,22 +1,13 @@
 version: "3.4"
 services:
   express:
-    image: node:21.1.0
+    image: ca-microservices-nodejs:latest
+    container_name: ca-microservices-app
     volumes:
-      - type: bind
-        source: ./
-        target: /app
-      - type: volume
-        source: nodemodules
-        target: /app/node_modules
-        volume:
-          nocopy: true
-    working_dir: /app
-    command: npm run dev
+    - ./app:/usr/src/app
     ports:
       - "3001:3001"
     environment:
       - NODE_ENV=development
       - PORT=3001
-volumes:
-  nodemodules:
+      - SECRET_KEY=secret_key_value
