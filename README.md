@@ -40,12 +40,6 @@ A Microservice API based on the hexagonal architecture using NodeJS + ExpressJS
 npm install
 ```
 
-### Before running the project
-
-```zsh
-cp .env.example .env
-```
-
 #### Run the app using Docker
 
 Use the following commands to run the app
