@@ -1,11 +1,11 @@
-FROM node:21.1.0
+FROM node:21.1.0-alpine
 
 WORKDIR /app/
-COPY package*.json .babelrc ./
+COPY package*.json .babelrc .env ./
 
 RUN npm install
 COPY ./app ./app
 RUN npm run build
 
+CMD [ "node", "dist/index.js", "node—file=.env"]
 EXPOSE 3001
-CMD [ "node", ".env", "dist/index.js" ]

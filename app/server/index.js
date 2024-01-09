@@ -3,7 +3,11 @@ import cors from 'cors';
 import express from 'express';
 import { Adapters } from '../internal/adapters';
 import { VerifyToken } from '../internal/adapters/auth';
-import { Logger, HandlerError, configurations } from '../internal/core/middlewares';
+import {
+  Logger,
+  HandlerError,
+  configurations,
+} from '../internal/core/middlewares';
 
 const { Routes } = Adapters;
 
