@@ -2,11 +2,11 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import express from 'express';
 import { Adapters } from '../internal/adapters';
-import { VerifyToken } from '../internal/adapters/auth';
 import {
   Logger,
   HandlerError,
   configurations,
+  isTokenValid,
 } from '../internal/core/middlewares';
 
 const { Routes } = Adapters;
@@ -17,11 +17,10 @@ App.use(bodyParser.json());
 App.use(bodyParser.urlencoded({ extended: false }));
 App.use(Logger);
 App.use(configurations);
+App.use(isTokenValid);
 
-Routes.MainRoute(App);
 Routes.AuthRoute(App);
-
-App.use(VerifyToken);
+Routes.MainRoute(App);
 Routes.UsersRoute(App);
 
 App.use(HandlerError);
