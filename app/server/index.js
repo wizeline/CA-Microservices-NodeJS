@@ -6,7 +6,7 @@ import {
   Logger,
   HandlerError,
   configurations,
-  isTokenValid,
+  tokenValidator,
 } from '../internal/core/middlewares';
 
 const { Routes } = Adapters;
@@ -17,7 +17,7 @@ App.use(bodyParser.json());
 App.use(bodyParser.urlencoded({ extended: false }));
 App.use(Logger);
 App.use(configurations);
-App.use(isTokenValid);
+App.use(tokenValidator);
 
 Routes.AuthRoute(App);
 Routes.MainRoute(App);

@@ -1,13 +1,10 @@
 import { Token } from '../../adapters/auth';
 
-const tokenPaths ={
-    "/health/": undefined,
-    "/users/": undefined
-};
+const tokenPaths =["/health/", "/users/"]
 
-export const isTokenValid = (req, res, next) => {
+export const tokenValidator = (req, res, next) => {
     const token = req.headers["authorization"] && req.headers["authorization"].split(" ")[1];
-    if (token !== "undefined" && req.path.slice(0,7) in tokenPaths){
+    if (token !== "undefined" && tokenPaths.includes(req.path.slice(0,7))){
         try {
             Token.verifyToken(token);
             next();
