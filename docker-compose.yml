@@ -11,3 +11,4 @@ services:
       - NODE_ENV=development
       - PORT=3001
       - SECRET_KEY=secret_key_value
+      - EXPIRES_IN=1h

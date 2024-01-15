@@ -18,7 +18,7 @@ describe('UserServices Create', () => {
 
 describe('UserServices Update', () => {
   it('should update by id', () => {
-    const expected = { message: 'This is a response from a UPDATE request' };
+    const expected = { message: 'This is a response from an UPDATE request' };
     const response = UserServices.update();
     expect(response).toEqual(expected);
   });

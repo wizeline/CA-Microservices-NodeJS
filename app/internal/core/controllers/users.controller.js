@@ -38,7 +38,7 @@ export const UsersController = {
   },
   delete: async (req, res, next) => {
     try {
-      const message = UserServices.delete();
+      const message = UserServices.deleteByID();
       res.status(constants.HTTP_STATUS_OK).json(message);
     } catch (err) {
       next(err);
