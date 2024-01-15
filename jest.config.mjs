@@ -17,6 +17,7 @@ const config = {
     },
   },
   collectCoverageFrom: ['app/**/*.js', '!app/**/index.js'],
+  setupFiles: ['<rootDir>/test/setEnvVars.js'],
 };
 
 export default config;

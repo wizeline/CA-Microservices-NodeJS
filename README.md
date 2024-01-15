@@ -32,20 +32,31 @@ A Microservice API based on the hexagonal architecture using NodeJS + ExpressJS
 - [NodeJS](https://nodejs.org/en/) >= v20.1.0
 - [Docker](https://www.docker.com/)
 
-### SetUp
+## SetUp
 
-#### Install
+### Install
 
 ```zsh
 npm install
 ```
 
-### Before running the project
+## Running
+
+### Local
+
+#### Create environment vars
+
 ```zsh
 cp .env.example .env
 ```
 
-#### Run the app using Docker
+#### Run
+
+```zsh
+npm run start
+```
+
+### Docker
 
 Use the following commands to run the app
 
@@ -65,7 +76,7 @@ Now you can do a HTTP request to:
 http://localhost:3001/users/123123123
 ```
 
-#### Test
+## Test
 
 ```zsh
 npm run test

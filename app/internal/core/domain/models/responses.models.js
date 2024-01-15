@@ -18,20 +18,20 @@ const simple = (message) => ({
  * @typedef {Object} TokenResponse
  * @property {string} access_token - The token created.
  * @property {string} expires_in - The expiration time of the toke.
- * @property {string} token_type - The token type for the request, by default is Bearer.
+ * @property {string} tokenType - The token type for the request, by default is Bearer.
  */
 
 /**
  * Creates a token response object.
  * @param {string} token - The token created with the expiration time.
- * @property {string} expires_in - The expiration time of the token.
+ * @property {string} expiresIn - The expiration time of the token.
  * @returns {TokenResponse} The token response with the information about the token created.
  */
 
-const tokenResponse = (token, expires_in) =>({
+const tokenResponse = (token, expiresIn) => ({
   access_token: token,
-  expires_in: expires_in,
-  token_type: "Bearer"
+  expiresIn,
+  tokenType: 'Bearer',
 });
 
 export const Responses = {

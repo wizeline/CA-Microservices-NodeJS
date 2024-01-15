@@ -5,26 +5,43 @@ const {
 } = Domain;
 
 /**
- * Get by ID response.
- * @returns {import('../domain/models/responses.models.js').SimpleResponse} The getByID response.
- * Create response.
- * @returns {import('../domain/models/responses.models.js').SimpleResponse} The create response.
- * Update response.
- * @returns {import('../domain/models/responses.models.js').SimpleResponse} The update response.
- * Delete response.
- * @returns {import('../domain/models/responses.models.js').SimpleResponse} The delete response.
+ * User services for handling CRUD operations on user entities.
+ * @namespace
+ * @typedef {Object} UserServices
  */
-export const UserServices = {
-    getById: () =>{
-      return Responses.simple('This is a response from a get request');
-    },
-    create: () =>{
-      return Responses.simple('This is a response from a post request');
-    },
-    update: () =>{
-      return Responses.simple('This is a response from a update request');
-    },
-    delete: () =>{
-      return Responses.simple('This is a response from a delete request');
-    },
-}
+
+/**
+ * Get user by ID.
+ * @function
+ * @memberof UserServices
+ * @returns {import('../domain/models/responses.models.js').SimpleResponse} The response for the get by ID request.
+ */
+const getById = () => Responses.simple('This is a response from a GET request');
+
+/**
+ * Create a new user.
+ * @function
+ * @memberof UserServices
+ * @returns {import('../domain/models/responses.models.js').SimpleResponse} The response for the create request.
+ */
+const create = () => Responses.simple('This is a response from a POST request');
+
+/**
+ * Update an existing user.
+ * @function
+ * @memberof UserServices
+ * @returns {import('../domain/models/responses.models.js').SimpleResponse} The response for the update request.
+ */
+const update = () =>
+  Responses.simple('This is a response from an UPDATE request');
+
+/**
+ * Delete a user by ID.
+ * @function
+ * @memberof UserServices
+ * @returns {import('../domain/models/responses.models.js').SimpleResponse} The response for the delete request.
+ */
+const deleteByID = () =>
+  Responses.simple('This is a response from a DELETE request');
+
+export const UserServices = { getById, create, update, deleteByID };

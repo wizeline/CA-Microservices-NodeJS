@@ -1,5 +1,5 @@
 import { Domain } from '../domain';
-import { Token } from '../../adapters/auth';
+import { JWT } from '../../adapters/auth';
 
 const {
   Models: { Responses },
@@ -10,8 +10,13 @@ const {
  * @returns {import('../domain/models/responses.models.js').TokenResponse} The getByID response.
  */
 export const AuthServices = {
-    getToken:(admin_id, expires_in) =>{
-      const token = Token.generateToken(admin_id, expires_in);
-      return Responses.tokenResponse(token, expires_in);
-    },
+  /**
+   * @param {string} adminID - The ID of the admin for whom the token is generated.
+   * @param {string} secretKey - secretKey to be used to create the token
+   * @param {string | number} expiresIn - The expiration time for the token (e.g., '2h', '7d', or a timestamp).
+   */
+  getToken: (adminID, expiresIn, secretKey) => {
+    const token = JWT.generateToken(adminID, expiresIn, secretKey);
+    return Responses.tokenResponse(token, expiresIn);
+  },
 };

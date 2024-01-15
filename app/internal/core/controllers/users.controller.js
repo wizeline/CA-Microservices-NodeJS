@@ -1,10 +1,5 @@
-import { UserServices } from '../services';
 import { constants } from 'http2';
-import { Domain } from '../domain';
-
-const {
-  Models: { Responses },
-} = Domain;
+import { UserServices } from '../services';
 
 /**
  * Callback function for performing a CRUD.
@@ -17,38 +12,36 @@ const {
  * @function delete - Delete the information of a user using his ID.
  */
 export const UsersController = {
-    getById: (req, res, next) => {
-      try {
-        const message = UserServices.getById();
-        res.status(constants.HTTP_STATUS_OK).json(message);
-      } catch (err) {
-        next(err);
-      }
-    },
-    create: async (req, res, next) => {
-      {
-        try {
-          const message = UserServices.create();
-          res.status(constants.HTTP_STATUS_OK).json(message);
-        } catch (err) {
-          next(err);
-        }
-      }
-    },
-    update: async (req, res, next) => {
-      try {
-        const message = UserServices.update();
-        res.status(constants.HTTP_STATUS_OK).json(message);
-      } catch (err) {
-        next(err);
-      }
-    },
-    delete: async (req, res, next) => {
-      try {
-        const message = UserServices.delete();
-        res.status(constants.HTTP_STATUS_OK).json(message);
-      } catch (err) {
-        next(err);
-      }
-    },
-}
+  getById: (req, res, next) => {
+    try {
+      const message = UserServices.getById();
+      res.status(constants.HTTP_STATUS_OK).json(message);
+    } catch (err) {
+      next(err);
+    }
+  },
+  create: async (req, res, next) => {
+    try {
+      const message = UserServices.create();
+      res.status(constants.HTTP_STATUS_OK).json(message);
+    } catch (err) {
+      next(err);
+    }
+  },
+  update: async (req, res, next) => {
+    try {
+      const message = UserServices.update();
+      res.status(constants.HTTP_STATUS_OK).json(message);
+    } catch (err) {
+      next(err);
+    }
+  },
+  delete: async (req, res, next) => {
+    try {
+      const message = UserServices.deleteByID();
+      res.status(constants.HTTP_STATUS_OK).json(message);
+    } catch (err) {
+      next(err);
+    }
+  },
+};

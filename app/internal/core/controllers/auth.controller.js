@@ -1,5 +1,5 @@
-import { AuthServices } from '../services';
 import { constants } from 'http2';
+import { AuthServices } from '../services';
 
 /**
  * Callback function for performing a CRUD.
@@ -9,12 +9,16 @@ import { constants } from 'http2';
  * @function getToken - Obtain the JWT token.
  */
 export const AuthController = {
-    getToken: (req, res, next) => {
-      try {
-        const token = AuthServices.getToken(req.body.admin_id, req.body.expires_in);
-        res.status(constants.HTTP_STATUS_OK).json(token);
-      } catch (err) {
-        next(err);
-      }
-    },
+  getToken: (req, res, next) => {
+    try {
+      const token = AuthServices.getToken(
+        req.body.adminId,
+        req.config.auth.expiresIn,
+        req.config.auth.securityKey,
+      );
+      res.status(constants.HTTP_STATUS_OK).json(token);
+    } catch (err) {
+      next(err);
+    }
+  },
 };
