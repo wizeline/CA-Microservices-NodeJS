@@ -5,8 +5,8 @@ import { Adapters } from '../internal/adapters';
 import {
   Logger,
   HandlerError,
-  configurations,
-  tokenValidator,
+  Configurations,
+  Auth,
 } from '../internal/core/middlewares';
 
 const { Routes } = Adapters;
@@ -15,9 +15,9 @@ const App = express();
 App.use(cors());
 App.use(bodyParser.json());
 App.use(bodyParser.urlencoded({ extended: false }));
+App.use(Configurations);
 App.use(Logger);
-App.use(configurations);
-App.use(tokenValidator);
+App.use(Auth);
 
 Routes.AuthRoute(App);
 Routes.MainRoute(App);
