@@ -1,0 +1,13 @@
+version: "3.4"
+services:
+  express:
+    image: ca-microservices-nodejs:latest
+    container_name: ca-microservices-app
+    volumes:
+    - ./app:/usr/src/app
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=development
+      - PORT=3001
+      - SECRET_KEY=secret_key_value
