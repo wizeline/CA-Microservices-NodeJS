@@ -1,8 +1,13 @@
+/**
+ * @module Controllers/Main
+ */
+
 import { constants } from 'http2';
 import { MainServices } from '../services';
 
 /**
- * Callback function for performing a health check.
+ * Callback function the health check.
+ * @function
  * @param {import('express').Request} req - Express request object.
  * @param {import('express').Response} res - Express response object.
  * @param {import('express').NextFunction} next - Express next middleware function.

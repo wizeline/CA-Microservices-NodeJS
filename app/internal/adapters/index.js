@@ -1,5 +1,12 @@
-import { MainRoute, UsersRoute, AuthRoute } from './routes';
+import { JWT } from './auth';
+import { AuthRoute, MainRoute, UsersRoute } from './routes';
 
+/**
+ * Adapters module containing various adapters.
+ * @property {object} Auth - Authentication adapter.
+ * @property {object} Routes - Routes adapter.
+ */
 export const Adapters = {
-  Routes: { MainRoute, UsersRoute, AuthRoute },
+  Auth: { JWT },
+  Routes: { MainRoute, AuthRoute, UsersRoute },
 };

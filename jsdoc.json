@@ -1,0 +1,40 @@
+{
+  "source": {
+    "include": [
+      "app/internal/adapters",
+      "app/internal/core"
+    ],
+    "exclude": [
+      "node_modules/"
+    ]
+  },
+  "recurseDepth": 10,
+  "opts": {
+    "template": "node_modules/docdash",
+    "destination": "docs/",
+    "recurse": true
+  },
+  "plugins": [
+    "plugins/markdown",
+    "node_modules/jsdoc-tsimport-plugin/index.js"
+  ],
+  "docdash": {
+    "static": true,
+    "sort": true,
+    "collapse": true,
+    "typedefs": true,
+    "menu": {
+      "Github repo": {
+        "href": "https://github.com/wizeline/CA-Microservices-NodeJS",
+        "target": "_blank",
+        "class": "menu-item",
+        "id": "repository"
+      }
+    }
+  },
+  "templates": {
+    "default": {
+      "useLongnameInNav": false
+    }
+  }
+}

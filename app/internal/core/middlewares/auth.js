@@ -1,12 +1,20 @@
-import { JWT } from '../../adapters/auth';
+/**
+ * Auth middlewares
+ * @module Middlewares/Auth
+ */
+
+import { Adapters } from '../../adapters';
 
 const tokenPaths = ['/health/', '/users/'];
+const { JWT } = Adapters.Auth;
 
 /**
  * Express middleware to check credentials on specifics routes.
+ * @function
  * @param {import('express').Request} req - The Express request object.
  * @param {import('express').Response} res - The Express response object.
  * @param {import('express').NextFunction} next - The Express next function.
+ * @throws {Error} If authentication fails.
  */
 export const Auth = (req, res, next) => {
   const token =

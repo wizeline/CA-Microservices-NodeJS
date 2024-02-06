@@ -1,9 +1,14 @@
+/**
+ * @module Routes/Users
+ */
+
 import express from 'express';
 import { UsersController } from '../../core/controllers';
 
 /**
- * Create a new instance of UserRoutes.
- * @param {express.Application} app - The Express application instance.
+ * Set up routes related to Users CRUD operations
+ * @function UsersRoute
+ * @param {express.Application} app - The Express application.
  */
 export const UsersRoute = (app) => {
   const router = express.Router();

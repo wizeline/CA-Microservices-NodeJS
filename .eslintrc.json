@@ -7,7 +7,8 @@
   "extends": [
     "airbnb-base",
     "prettier",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:jsdoc/recommended"
   ],
   "ignorePatterns": [
     "/dist"
@@ -18,9 +19,11 @@
   },
   "plugins": [
     "prettier",
-    "jest"
+    "jest",
+    "jsdoc"
   ],
   "rules": {
+    "valid-jsdoc": "off",
     "prettier/prettier": "error",
     "no-console": "warn",
     "arrow-body-style": [
@@ -66,5 +69,10 @@
         "devDependencies": true
       }
     ]
+  },
+  "settings": {
+    "jsdoc": {
+      "mode": "typescript"
+    }
   }
 }
