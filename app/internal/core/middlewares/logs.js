@@ -1,16 +1,11 @@
+/**
+ * Configurations middlewares
+ * @module Middlewares/Logger
+ */
+
 import { createLogger, format, transports } from 'winston';
 
 const { combine, timestamp, printf } = format;
-
-/**
- * Log format for Winston logger.
- * @callback LogFormat
- * @param {Object} info - Log information.
- * @param {string} info.level - Log level.
- * @param {string} info.message - Log message.
- * @param {string} info.timestamp - Log timestamp.
- * @returns {string} - Formatted log entry.
- */
 
 /**
  * The Winston logger instance
@@ -31,6 +26,7 @@ const newLogger = createLogger({
 
 /**
  * Express middleware to attach the logger to the request object.
+ * @function
  * @param {import('express').Request} req - The Express request object.
  * @param {import('express').Response} res - The Express response object.
  * @param {import('express').NextFunction} next - The Express next function.

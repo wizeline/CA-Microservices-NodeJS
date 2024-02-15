@@ -1,6 +1,11 @@
 /**
+ * Auth middlewares
+ * @module Models/Responses
+ */
+
+/**
  * Represents a simple response object.
- * @typedef {Object} SimpleResponse
+ * @typedef {object} SimpleResponse
  * @property {string} message - The message associated with the response.
  */
 
@@ -15,7 +20,7 @@ const simple = (message) => ({
 
 /**
  * Represents a token response object.
- * @typedef {Object} TokenResponse
+ * @typedef {object} TokenResponse
  * @property {string} access_token - The token created.
  * @property {string} expires_in - The expiration time of the toke.
  * @property {string} tokenType - The token type for the request, by default is Bearer.
@@ -24,10 +29,9 @@ const simple = (message) => ({
 /**
  * Creates a token response object.
  * @param {string} token - The token created with the expiration time.
- * @property {string} expiresIn - The expiration time of the token.
+ * @param {string} expiresIn - The expiration time of the token.
  * @returns {TokenResponse} The token response with the information about the token created.
  */
-
 const tokenResponse = (token, expiresIn) => ({
   access_token: token,
   expiresIn,

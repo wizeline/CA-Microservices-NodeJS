@@ -1,9 +1,14 @@
+/**
+ * @module Routes/Main
+ */
+
 import express from 'express';
 import { MainController } from '../../core/controllers';
 
 /**
- * Create a new instance of MainRoutes.
- * @param {express.Application} app - The Express application instance.
+ * Set up main routes.
+ * @function MainRoute
+ * @param {express.Application} app - The Express application.
  */
 export const MainRoute = (app) => {
   const router = express.Router();
