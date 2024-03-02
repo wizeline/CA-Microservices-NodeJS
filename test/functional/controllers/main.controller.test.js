@@ -2,7 +2,7 @@ import { constants } from 'http2';
 import { MainController } from '../../../app/internal/core/controllers';
 
 describe('MainController', () => {
-  it('health check is requested', () => {
+  it('should request health check', () => {
     const req = {
       body: {
         admin_id: 123,
