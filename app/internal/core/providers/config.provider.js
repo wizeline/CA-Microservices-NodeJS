@@ -1,6 +1,4 @@
-/**
- * @module Providers/Config
- */
+/** @module Providers */
 
 /**
  * Default configuration object.
@@ -12,7 +10,10 @@
 
 /**
  * Default configuration for the application.
+ * @namespace defaultConfig
+ * @memberof module:Providers
  * @type {DefaultConfig}
+ * @constant
  */
 export const defaultConfig = {
   auth: {
