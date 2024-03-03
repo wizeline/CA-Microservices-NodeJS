@@ -38,7 +38,40 @@ const tokenResponse = (token, expiresIn) => ({
   tokenType: 'Bearer',
 });
 
+/**
+ * Represents a token response object.
+ * @typedef {object} UserResponse
+ * @property {string} id - The user id.
+ * @property {string} firstName - User first name.
+ * @property {string} lastName - User last name.
+ * @property {string} email - User email.
+ */
+
+/**
+ * Creates a token response object.
+ * @param {string} success - A simple flag.
+ * @param {string} message - A simple message about the response.
+ * @param {Map} user - The user information from the database.
+ * @param {string} id - The id in UUID form of the user.
+ * @param {string} first_name - The first name of the user.
+ * @param {string} last_name - The last_name of the user.
+ * @param {string} email - The email from the user.
+ * @returns {UserResponse} The user response with the information about the user.
+ */
+
+const userResponse = (id, firstName, lastName, email) =>({
+  success: true,
+  message: "Success",
+  user: {
+    id: id,
+    first_name: firstName,
+    last_name: lastName,
+    email: email,
+  }
+});
+
 export const Responses = {
   simple,
   tokenResponse,
+  userResponse,
 };

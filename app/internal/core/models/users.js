@@ -7,10 +7,6 @@ import { model, Schema } from 'mongoose';
  */
 const createUserSchema = new Schema(
   {
-    Id: {
-      type: Number,
-      required: true,
-    },
     email: {
       type: String,
       required: true,
@@ -23,9 +19,6 @@ const createUserSchema = new Schema(
       type: String,
       required: true,
     },
-    company: String,
-    url: String,
-    text: String,
   },
   { timestamps: true, versionKey: false },
 );

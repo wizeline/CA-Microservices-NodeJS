@@ -21,7 +21,7 @@ export const Auth = (req, res, next) => {
     req.headers.authorization && req.headers.authorization.split(' ')[1];
   if (token !== 'undefined' && tokenPaths.includes(req.path.slice(0, 7))) {
     try {
-      JWT.verifyToken(token, req.defaultConfig.auth.secretKey);
+      JWT.verifyToken(token, req.config.auth.securityKey);
       next();
     } catch (err) {
       next(err);
