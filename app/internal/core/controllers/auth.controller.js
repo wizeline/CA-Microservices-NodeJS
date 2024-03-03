@@ -1,7 +1,4 @@
-/**
- * @module Controllers/Auth
- */
-
+/** @module Controllers */
 import { constants } from 'http2';
 import { AuthServices } from '../services';
 
@@ -25,6 +22,11 @@ const getToken = (req, res, next) => {
   }
 };
 
+/**
+ * @namespace AuthController
+ * @memberof module:Controllers
+ * @constant
+ */
 export const AuthController = {
   getToken,
 };

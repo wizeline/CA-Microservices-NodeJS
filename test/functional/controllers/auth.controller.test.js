@@ -2,7 +2,7 @@ import { constants } from 'http2';
 import { AuthController } from '../../../app/internal/core/controllers';
 
 describe('AuthController', () => {
-  it('Create token is requested', () => {
+  it('should create token is requested', () => {
     const req = {
       body: {
         adminId: 123,

@@ -23,6 +23,10 @@
     "sort": true,
     "collapse": true,
     "typedefs": true,
+    "sectionOrder": [
+      "Modules",
+      "Namespaces"
+    ],
     "menu": {
       "Github repo": {
         "href": "https://github.com/wizeline/CA-Microservices-NodeJS",

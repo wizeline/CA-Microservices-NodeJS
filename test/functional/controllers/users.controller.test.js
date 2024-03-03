@@ -2,7 +2,7 @@ import { constants } from 'http2';
 import { UsersController } from '../../../app/internal/core/controllers';
 
 describe('UsersController GetByID', () => {
-  it('Get by ID is requested', () => {
+  it('should get by ID', () => {
     const res = { json: jest.fn((x) => x), status: jest.fn((x) => x) };
     const callback = () => null;
 
@@ -12,7 +12,7 @@ describe('UsersController GetByID', () => {
 });
 
 describe('UsersController Create', () => {
-  it('Create is requested', () => {
+  it('should request create', () => {
     const res = { json: jest.fn((x) => x), status: jest.fn((x) => x) };
     const callback = () => null;
 
@@ -22,7 +22,7 @@ describe('UsersController Create', () => {
 });
 
 describe('UsersController Update', () => {
-  it('Update is requested', () => {
+  it('should request an update', () => {
     const res = { json: jest.fn((x) => x), status: jest.fn((x) => x) };
     const callback = () => null;
 
@@ -32,7 +32,7 @@ describe('UsersController Update', () => {
 });
 
 describe('UsersController Delete', () => {
-  it('Delete is requested', () => {
+  it('should request a delete', () => {
     const res = { json: jest.fn((x) => x), status: jest.fn((x) => x) };
     const callback = () => null;
 

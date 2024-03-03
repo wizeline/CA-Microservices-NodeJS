@@ -1,6 +1,4 @@
-/**
- * @module Controllers/Main
- */
+/** @module Controllers */
 
 import { constants } from 'http2';
 import { MainServices } from '../services';
@@ -21,6 +19,10 @@ const healthCheck = (req, res, next) => {
   }
 };
 
+/**
+ * @namespace MainController
+ * @constant
+ */
 export const MainController = {
   healthCheck,
 };

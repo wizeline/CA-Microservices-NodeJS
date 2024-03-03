@@ -1,6 +1,4 @@
-/**
- * @module Auth/JWT
- */
+/** @module Auth */
 
 import jsonwebtoken from 'jsonwebtoken';
 
@@ -27,6 +25,11 @@ const generateToken = (adminID, expiresIn, secretKey) =>
  */
 const verifyToken = (token, secretKey) => jsonwebtoken.verify(token, secretKey);
 
+/**
+ * @namespace JWT
+ * @memberof module:Auth
+ * @constant
+ */
 export const JWT = {
   generateToken,
   verifyToken,

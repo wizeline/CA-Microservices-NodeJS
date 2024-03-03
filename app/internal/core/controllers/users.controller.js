@@ -1,6 +1,3 @@
-/**
- * @module Controllers/Users
- */
 import { constants } from 'http2';
 import { UserServices } from '../services';
 import { UserModel } from '../models';
@@ -84,6 +81,11 @@ const drop = async (req, res, next) => {
   }
 };
 
+/**
+ * @namespace UsersController
+ * @memberof module:Controllers
+ * @constant
+ */
 export const UsersController = {
   getById,
   create,
