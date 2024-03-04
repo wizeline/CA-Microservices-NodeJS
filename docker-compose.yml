@@ -1,5 +1,20 @@
 version: "3.4"
 services:
+  db:
+    container_name: ca-microservices-app-db
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=changethis
+      - POSTGRES_DB=ca_microservices_nodejs
+      - POSTGRES_PORT=5432
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db_migrations/000001.sql:/docker-entrypoint-initdb.d/000001.sql
+    command: ["docker-entrypoint.sh", "postgres", "-c", "log_statement=all"]
   express:
     image: ca-microservices-nodejs:latest
     container_name: ca-microservices-app
@@ -12,3 +27,11 @@ services:
       - PORT=3001
       - SECRET_KEY=secret_key_value
       - EXPIRES_IN=1h
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=changethis
+      - POSTGRES_HOST=db
+      - POSTGRES_DB=ca_microservices_nodejs
+      - POSTGRES_PORT=5432
+    restart: on-failure
+volumes:
+  postgres_data:

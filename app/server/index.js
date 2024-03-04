@@ -7,6 +7,7 @@ import {
   HandlerError,
   Configurations,
   Auth,
+  DatabaseConnection,
 } from '../internal/core/middlewares';
 
 const { Routes } = Adapters;
@@ -24,6 +25,9 @@ App.use(bodyParser.urlencoded({ extended: false }));
 
 // Apply global configurations middleware
 App.use(Configurations);
+
+//Apply database middleware
+App.use(DatabaseConnection)
 
 // Apply logger middleware
 App.use(Logger);
