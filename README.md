@@ -12,6 +12,28 @@ This initiative aims to expedite the development of applications in their initia
 
 The main purpose of this project is to establish a microservices standard by providing a robust base code that addresses the fundamental needs of any microservices-focused project. It aims to promote good development practices, the adoption of design patterns and architecture specific to microservices. Additionally, there is an intention to encourage the implementation of rigorous processes for code testing and quality assurance, ensuring the reliability and efficiency of the resulting system.
 
+### Cross-Cutting Concerns in the project:
+#### What are cross-cutting concerns:
+A cross cutting concern is functionality that is apply horizontally across an entire application. This functionality play and essential role in ensuring maintainability and scalability for the system. To know more about check this link: [Cross-Cutting Concerns](https://microservices.io/patterns/microservice-chassis.html)
+
+This application use some cross-cutting concerns, like:
+
+1. Security:
+  - REST APIs must be secured by requiring an Access Token
+    - Implementation:
+      - The application includes the use of a Bearer Token for the paths of the application and the use of [JWT](https://jwt.io/) as the creation of the token.
+      - To create the token you can use the path ```http://localhost:3001/auth/token)```
+2. Logging:
+  - This enabled the examination of application behavior, such as monitoring, debugging, or tracking activities within the app.
+    - Implementation:
+      - The application use a logger middleware to print in console information during the execution of the app.
+3.  Health check:
+  -  A url that a monitoring service can “ping” to determine the health of the application
+     -  Implementation:
+        -  The application includes a path ```http://localhost:3001/health)```  to verify the health of the service
+4. Externalized configuration:
+  - The application use a configuration to be connected to a Postgresql database using docker.
+
 ## Specific
 
 ### Content
