@@ -1,14 +1,16 @@
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import express from 'express';
+import swaggerUI from 'swagger-ui-express';
 import { Adapters } from '../internal/adapters';
 import {
-  Logger,
-  HandlerError,
-  Configurations,
   Auth,
+  Configurations,
   DatabaseConnection,
+  HandlerError,
+  Logger,
 } from '../internal/core/middlewares';
+import swaggerSpec from '../../swagger';
 
 const { Routes } = Adapters;
 
@@ -26,8 +28,11 @@ App.use(bodyParser.urlencoded({ extended: false }));
 // Apply global configurations middleware
 App.use(Configurations);
 
-//Apply database middleware
-App.use(DatabaseConnection)
+// Apply swagger middleware
+App.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
+
+// Apply database middleware
+App.use(DatabaseConnection);
 
 // Apply logger middleware
 App.use(Logger);

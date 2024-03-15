@@ -15,6 +15,7 @@ import { constants } from 'http2';
  */
 
 export const HandlerError = (err, _req, res, _next) => {
-  res.json({ error: err.message });
-  res.status(err.status || constants.HTTP_STATUS_INTERNAL_SERVER_ERROR);
+  res
+    .status(err.status || constants.HTTP_STATUS_INTERNAL_SERVER_ERROR)
+    .json({ error: err.message });
 };

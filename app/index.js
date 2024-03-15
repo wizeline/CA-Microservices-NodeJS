@@ -1,5 +1,4 @@
 import App from './server';
-
 /**
  * The port on which the server will listen.
  * @type {number}

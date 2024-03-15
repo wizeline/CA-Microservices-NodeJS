@@ -68,6 +68,12 @@
       {
         "devDependencies": true
       }
+    ],
+    "jsdoc/check-tag-names": [
+      "warn",
+      {
+        "definedTags": ["swagger"]
+      }
     ]
   },
   "settings": {
