@@ -59,9 +59,16 @@ const tokenResponse = (token, expiresIn) => ({
  * @returns {UserResponse} The user response with the information about the user.
  */
 
-const userResponse = (id, firstName, lastName, email) => ({
-  success: true,
-  message: 'Success',
+const userResponse = (
+  id,
+  firstName,
+  lastName,
+  email,
+  success = false,
+  message = 'No Content',
+) => ({
+  success,
+  message,
   user: {
     id,
     firstName,
