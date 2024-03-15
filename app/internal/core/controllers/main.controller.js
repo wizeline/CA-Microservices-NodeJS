@@ -1,14 +1,18 @@
-/** @module Controllers */
+/** @module Controllers/Main */
 
 import { constants } from 'http2';
 import { MainServices } from '../services';
 
+/** @typedef {import('express').Request} Request */
+/** @typedef {import('express').Response} Response */
+/** @typedef {import('express').NextFunction} NextFunction */
+
 /**
  * Callback function the health check.
  * @function
- * @param {import('express').Request} req - Express request object.
- * @param {import('express').Response} res - Express response object.
- * @param {import('express').NextFunction} next - Express next middleware function.
+ * @param {Request} req - Express request object.
+ * @param {Response} res - Express response object.
+ * @param {NextFunction} next - Express next middleware function.
  */
 const healthCheck = (req, res, next) => {
   try {
@@ -19,10 +23,6 @@ const healthCheck = (req, res, next) => {
   }
 };
 
-/**
- * @namespace MainController
- * @constant
- */
 export const MainController = {
   healthCheck,
 };
