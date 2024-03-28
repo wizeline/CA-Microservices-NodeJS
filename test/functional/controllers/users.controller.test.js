@@ -84,6 +84,9 @@ describe('UsersController', () => {
     const error = new Error('default');
     UserServices.deleteByID = jest.fn().mockRejectedValueOnce(error);
     await UsersController.delete(reqGet, res, next);
-    expect(next).toHaveBeenCalledWith(error);
+    expect(next).toHaveBeenCalledWith({
+      message: error,
+      status: constants.HTTP_STATUS_BAD_REQUEST,
+    });
   });
 });

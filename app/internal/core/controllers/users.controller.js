@@ -87,7 +87,7 @@ const drop = async (req, res, next) => {
     const message = await UserServices.deleteByID(req.db.client, req.params.id);
     res.status(constants.HTTP_STATUS_OK).json(message);
   } catch (err) {
-    next(err);
+    next({ message: err, status: constants.HTTP_STATUS_BAD_REQUEST });
   }
 };
 
