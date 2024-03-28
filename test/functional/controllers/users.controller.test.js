@@ -1,6 +1,7 @@
 import { constants } from 'http2';
 import { UsersController } from '../../../app/internal/core/controllers';
 import { UserServices } from '../../../app/internal/core/services';
+import { UserModel } from '../../../app/internal/core/models';
 
 describe('UsersController', () => {
   const buildRequest = (params = {}, body = {}) => ({
@@ -40,14 +41,21 @@ describe('UsersController', () => {
     expect(res.status).toHaveBeenCalledWith(constants.HTTP_STATUS_OK);
   });
 
-  it('should fail at create user', async () => {
-    const error = new Error('default');
-    UserServices.create = jest.fn().mockRejectedValueOnce(error);
+  it('should fail at create user with bad body', async () => {
+    const error = new Error('Request is not correct');
+    UserModel.validate = jest.fn().mockRejectedValueOnce(error);
     await UsersController.create(reqCreate, res, next);
     expect(next).toHaveBeenCalledWith({
       message: error,
       status: constants.HTTP_STATUS_BAD_REQUEST,
     });
+  });
+
+  it('should fail at create user', async () => {
+    const error = new Error('Request is not correct');
+    UserServices.create = jest.fn().mockRejectedValueOnce(error);
+    await UsersController.create(reqCreate, res, next);
+    expect(next).toHaveBeenCalledTimes(1);
   });
 
   it('should update user by id', async () => {
