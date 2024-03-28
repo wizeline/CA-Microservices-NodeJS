@@ -9,7 +9,7 @@ beforeEach(() => {
   MainRoute(app);
 });
 
-describe('Main Routes', () => {
+describe('MainRoutes', () => {
   it('GET /health', async () => {
     const res = await request(app).get('/health');
     expect(res.statusCode).toBe(constants.HTTP_STATUS_OK);

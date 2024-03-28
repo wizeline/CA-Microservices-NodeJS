@@ -7,7 +7,7 @@ describe('HandlerErrorMiddleware', () => {
     const errorStatus = constants.HTTP_STATUS_BAD_REQUEST;
     const res = {
       json: jest.fn(),
-      status: jest.fn(),
+      status: jest.fn().mockReturnThis(),
     };
     const next = jest.fn();
 

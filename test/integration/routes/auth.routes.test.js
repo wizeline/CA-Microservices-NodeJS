@@ -5,7 +5,7 @@ import { constants } from 'http2';
 import { AuthRoute } from '../../../app/internal/adapters/routes';
 import { Configurations } from '../../../app/internal/core/middlewares';
 
-describe('Auth Get Token', () => {
+describe('AuthRoutes', () => {
   let app = null;
   beforeEach(() => {
     app = express();
