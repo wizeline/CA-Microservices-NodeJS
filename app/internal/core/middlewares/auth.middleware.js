@@ -3,9 +3,10 @@
  * @module Middlewares/Auth
  */
 
+import { constants } from 'http2';
 import { Adapters } from '../../adapters';
 
-const tokenPaths = ['/health/', '/users/'];
+const tokenPaths = ['users'];
 const { JWT } = Adapters.Auth;
 
 /**
@@ -19,12 +20,15 @@ const { JWT } = Adapters.Auth;
 export const Auth = (req, res, next) => {
   const token =
     req.headers.authorization && req.headers.authorization.split(' ')[1];
-  if (token !== 'undefined' && tokenPaths.includes(req.path.slice(0, 7))) {
+  if (token !== 'undefined' && tokenPaths.includes(req.path.split('/')[1])) {
     try {
       JWT.verifyToken(token, req.config.auth.securityKey);
       next();
     } catch (err) {
-      next(err);
+      next({
+        message: err.message,
+        status: constants.HTTP_STATUS_UNAUTHORIZED,
+      });
     }
   } else {
     next();

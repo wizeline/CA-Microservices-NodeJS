@@ -1,13 +1,17 @@
-/** @module Controllers */
+/** @module Controllers/Auth */
 import { constants } from 'http2';
 import { AuthServices } from '../services';
+
+/** @typedef {import('express').Request} Request */
+/** @typedef {import('express').Response} Response */
+/** @typedef {import('express').NextFunction} NextFunction */
 
 /**
  * Callback function getting a token.
  * @function
- * @param {import('express').Request} req - Express request object.
- * @param {import('express').Response} res - Express response object.
- * @param {import('express').NextFunction} next - Express next middleware function.
+ * @param {Request} req - Express request object.
+ * @param {Response} res - Express response object.
+ * @param {NextFunction} next - Express next middleware function.
  */
 const getToken = (req, res, next) => {
   try {
@@ -22,11 +26,6 @@ const getToken = (req, res, next) => {
   }
 };
 
-/**
- * @namespace AuthController
- * @memberof module:Controllers
- * @constant
- */
 export const AuthController = {
   getToken,
 };

@@ -1,32 +1,48 @@
 /** @module Services/Users */
 
+import { v4 as uuidv4 } from 'uuid';
 import { Domain } from '../domain';
-import {v4 as uuidv4} from 'uuid';
 
 const {
   Models: { Responses },
 } = Domain;
+
+const valueMap = {
+  firstName: 'first_name',
+  lastName: 'last_name',
+  email: 'email',
+};
+
+/** @typedef { import('pg').PoolClient} db */
+/** @typedef { import('../domain/models/responses.models.js').UserResponse} UserResponse */
+/** @typedef { import('../domain/models/responses.models.js').SimpleResponse } SimpleResponse */
 
 /**
  * Get user by ID.
  * @function
  * @param {db} db - DB client for the connection to the database.
  * @param {string} id - The UUID for the user in the database.
- * @returns {import('../domain/models/responses.models.js').UserResponse} The response for the get by ID request.
+ * @returns {UserResponse} The response for the get by ID request.
  */
 const getById = async (db, id) => {
-  try{
-    const query = 'SELECT id, first_name, last_name, email FROM users WHERE id=$1';
+  try {
+    const query =
+      'SELECT id, first_name, last_name, email FROM users WHERE id=$1';
     const result = await db.query(query, [id]);
-    if (result.rows.length === 0) {
-      return Responses.simple(`User with ${id} is not in the database.`);
-    } else {
-      return Responses.userResponse(id,result.rows[0].first_name, result.rows[0].last_name, result.rows[0].email);
-    }
+    return result.rows.length
+      ? Responses.userResponse(
+          id,
+          result.rows[0].first_name,
+          result.rows[0].last_name,
+          result.rows[0].email,
+          true,
+          'Success',
+        )
+      : Responses.userResponse();
   } catch (error) {
     return error;
   }
-}
+};
 
 /**
  * Create a new user.
@@ -35,13 +51,25 @@ const getById = async (db, id) => {
  * @param {string} firstName - The first name of the user.
  * @param {string} lastName - The last name of the user.
  * @param {string} email - The email from the user.
- * @returns {import('../domain/models/responses.models.js').userResponse} The response for the create request.
+ * @returns {UserResponse} The response for the create request.
  */
-const create = (db, firstName, lastName, email) => {
-  const randomUuid = uuidv4();
-  const query = 'INSERT INTO users (id, first_name, last_name, email) VALUES ($1, $2, $3, $4)';
-  db.query(query, [randomUuid, firstName, lastName, email]);
-  return Responses.userResponse(randomUuid, firstName, lastName, email);
+const create = async (db, firstName, lastName, email) => {
+  try {
+    const randomUuid = uuidv4();
+    const query =
+      'INSERT INTO users (id, first_name, last_name, email) VALUES ($1, $2, $3, $4)';
+    await db.query(query, [randomUuid, firstName, lastName, email]);
+    return Responses.userResponse(
+      randomUuid,
+      firstName,
+      lastName,
+      email,
+      true,
+      'Created',
+    );
+  } catch (error) {
+    return error;
+  }
 };
 
 /**
@@ -50,46 +78,46 @@ const create = (db, firstName, lastName, email) => {
  * @param {db} db - DB client for the connection to the database.
  * @param {string} id - The id of the user.
  * @param {Map} body - THe fields to be updated.
- * @returns {import('../domain/models/responses.models.js').SimpleResponse} The response for the update request.
+ * @returns {SimpleResponse} The response for the update request.
  */
-const update = async (db, id, body) =>{
-  try{
+const update = async (db, id, body) => {
+  try {
     const updates = [];
     const values = [id];
     let index = 2;
-    for (const value in body) {
-      updates.push(`${value} = $${index}`);
-      values.push(body[value]);
-      index++;
-    }
+    Object.entries(body).forEach(([key, value]) => {
+      updates.push(`${valueMap[key]} = $${index}`);
+      values.push(value);
+      index += 1;
+    });
     const query = `UPDATE users SET ${updates.join(',')} WHERE id = $1`;
-    db.query(query, values);
-    return Responses.simple(`User with ${id} has been updated.`)
+    await db.query(query, values);
+    return Responses.simple(`User with ${id} has been updated.`);
   } catch (error) {
     return error;
   }
-}
+};
 
 /**
  * Delete a user by ID.
+ * @param {db} db - DB client for the connection to the database.
+ * @param {string} id - The id of the user.
  * @function
- * @returns {import('../domain/models/responses.models.js').SimpleResponse} The response for the delete request.
+ * @returns {SimpleResponse} The response for the delete request.
  */
-const deleteByID = async (db, id) =>{
-  try{
-    const query = 'SELECT id FROM users WHERE id=$1';
+const deleteByID = async (db, id) => {
+  try {
+    let query = 'SELECT id FROM users WHERE id=$1';
     const result = await db.query(query, [id]);
     if (result.rows.length === 0) {
-        return Responses.simple(`User with ${id} is not in the database.`);
-    } else{
-      const query = 'DELETE FROM users WHERE id = $1';
-      db.query(query, [id]);
-      return Responses.simple(`User with ${id} has been deleted.`);
+      return Responses.simple(`User with ${id} is not in the database.`);
     }
+    query = 'DELETE FROM users WHERE id = $1';
+    db.query(query, [id]);
+    return Responses.simple(`User with ${id} has been deleted.`);
   } catch (error) {
     return error;
   }
-}
-
+};
 
 export const UserServices = { getById, create, update, deleteByID };

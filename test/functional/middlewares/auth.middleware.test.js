@@ -3,22 +3,21 @@ import { Auth } from '../../../app/internal/core/middlewares';
 
 const { JWT } = Adapters.Auth;
 
+const req = {
+  headers: {
+    authorization: 'Bearer valid_token',
+  },
+  path: '/users/some-route',
+  defaultConfig: {
+    auth: {
+      secretKey: 'your_secret_key',
+    },
+  },
+};
+
+const res = {};
+const next = jest.fn();
 describe('AuthMiddleware', () => {
-  const req = {
-    headers: {
-      authorization: 'Bearer valid_token',
-    },
-    path: '/users/some-route',
-    defaultConfig: {
-      auth: {
-        secretKey: 'your_secret_key',
-      },
-    },
-  };
-
-  const res = {};
-  const next = jest.fn();
-
   it('should call next if token is valid and path is in tokenPaths', () => {
     jest.spyOn(JWT, 'verifyToken').mockReturnValueOnce(true);
     Auth(req, res, next);

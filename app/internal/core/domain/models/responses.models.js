@@ -21,8 +21,8 @@ const simple = (message) => ({
 /**
  * Represents a token response object.
  * @typedef {object} TokenResponse
- * @property {string} access_token - The token created.
- * @property {string} expires_in - The expiration time of the toke.
+ * @property {string} accessToken - The token created.
+ * @property {string} expiresIn - The expiration time of the toke.
  * @property {string} tokenType - The token type for the request, by default is Bearer.
  */
 
@@ -33,7 +33,7 @@ const simple = (message) => ({
  * @returns {TokenResponse} The token response with the information about the token created.
  */
 const tokenResponse = (token, expiresIn) => ({
-  access_token: token,
+  accessToken: token,
   expiresIn,
   tokenType: 'Bearer',
 });
@@ -53,21 +53,28 @@ const tokenResponse = (token, expiresIn) => ({
  * @param {string} message - A simple message about the response.
  * @param {Map} user - The user information from the database.
  * @param {string} id - The id in UUID form of the user.
- * @param {string} first_name - The first name of the user.
- * @param {string} last_name - The last_name of the user.
+ * @param {string} firstName - The first name of the user.
+ * @param {string} lastName - The last_name of the user.
  * @param {string} email - The email from the user.
  * @returns {UserResponse} The user response with the information about the user.
  */
 
-const userResponse = (id, firstName, lastName, email) =>({
-  success: true,
-  message: "Success",
+const userResponse = (
+  id,
+  firstName,
+  lastName,
+  email,
+  success = false,
+  message = 'No Content',
+) => ({
+  success,
+  message,
   user: {
-    id: id,
-    first_name: firstName,
-    last_name: lastName,
-    email: email,
-  }
+    id,
+    firstName,
+    lastName,
+    email,
+  },
 });
 
 export const Responses = {

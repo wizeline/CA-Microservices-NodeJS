@@ -5,3 +5,5 @@ dist/
 .env
 out/
 docs/
+report.json
+test-report.xml

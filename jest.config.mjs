@@ -18,6 +18,7 @@ const config = {
   },
   collectCoverageFrom: ['app/**/*.js', '!app/**/index.js'],
   setupFiles: ['<rootDir>/test/setEnvVars.js'],
+  testResultsProcessor: 'jest-sonar-reporter',
 };
 
 export default config;
