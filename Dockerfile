@@ -5,6 +5,7 @@ COPY package*.json .babelrc ./
 
 RUN npm install
 COPY ./app ./app
+COPY swagger.js ./
 RUN npm run build
 
 EXPOSE 3001
